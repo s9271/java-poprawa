@@ -206,3 +206,11 @@ body {
 .add .message, .sell .message{
 	text-align: left;
 }
+
+.menutop ul{
+	width: 100%;
+}
+
+.menutop ul li.menuadmin{
+	float: right;
+}
