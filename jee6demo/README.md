@@ -7,7 +7,7 @@ chmod 755 ./scripts/*.sh
 4. stop GlassFish if it's running (w eclipsie)
 5. skopiowac hsqldb-2.2.4.jar do glassfish
 cp ./scripts/hsqldb-2.2.4.jar /opt/devel/as/glassfish3/glassfish/domains/domain1/lib/ext/
-6. Dodac w pliku na koniec(jak nie widac, prosze otworzyc plik) <resource>
+6. Dodac w pliku na koniec (jak nie widac, prosze otworzyc plik) /opt/devel/as/glassfish3/glassfish/domains/domain1/config/domain.xml <resource>
 <jdbc-connection-pool driver-classname="" datasource-classname="org.hsqldb.jdbc.JDBCDataSource" res-type="javax.sql.DataSource" description="" name="HSQLPool" ping="true">
 	<property name="DatabaseName" value="jdbc:hsqldb:hsql://localhost/workdb"></property>
 	<property name="User" value="SA"></property>
