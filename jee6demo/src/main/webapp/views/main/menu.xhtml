@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<h:form>
+		<div class="category">
+			<ui:insert name="category">
+				#{msg.mainCategory}
+			</ui:insert>
+		</div>
+		<ul>
+			<li>
+				<h:commandLink action="add?faces-redirect=true">
+					<h:outputText value="#{msg.personAddLabel}" />
+				</h:commandLink>
+			</li>
+			<li>
+				<h:commandLink action="sell?faces-redirect=true">
+					<h:outputText value="#{msg.personSellCars}" />
+				</h:commandLink>
+			</li>
+		</ul>
+	</h:form>
+</ui:composition>

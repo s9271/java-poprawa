@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<p class="title">#{msg.personSellCar} - #{item.make}</p>
+		<div class="box">
+			<h:form>
+				<h:dataTable value="#{personBean.ownedCars}" var="item">
+					<h:column>
+						<f:facet name="header">#{msg.personSellCarModel}</f:facet>
+						<h:outputText value="#{item.make} " />
+						<h:outputText value="#{item.model}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">#{msg.action}</f:facet>
+						<h:commandLink value="#{msg.actionDelete}" action="#{personBean.disposeCar}" />
+					</h:column>
+	
+				</h:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
