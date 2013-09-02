@@ -6,8 +6,19 @@
 	template="/templates/default.xhtml">
 	
 	<ui:define name="content">
-		<div class="panda">
-			<img src="resources/img/panda4.jpg" alt="panda" />
+		<p class="title">#{msg.adminLoginForm}</p>
+		<div class="box add">
+			<h:form id="adminLogin">
+				<h:panelGrid columns="2">
+					<h:outputText class="lefttable" value="#{msg.adminLogin}: " />
+					<h:inputText id="adminLogin" value="#{personBean.person.firstName}" required="#{true}" />
+	
+					<h:outputText class="lefttable" value="#{msg.adminPassword}: " />
+					<h:inputSecret id="adminPassword" value="#{personBean.person.pin}" required="#{true}" />
+				</h:panelGrid>
+	
+				<h:commandButton value="#{msg.adminLoginButton}" action="#{personBean.addPerson}" />
+			</h:form>
 		</div>
 	</ui:define>
 </ui:composition>
