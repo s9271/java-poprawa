@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+		<div class="admin-menutop">
+			<ui:include src="/views/main/admin-menu.xhtml" />
+		</div>
+		<p class="title">#{msg.adminLoginForm} - #{adminForm.test}</p>
+		<div class="box add">
+			<h:form id="adminLogin">
+				<h:panelGrid columns="2">
+					<h:outputText class="lefttable" value="#{msg.adminLogin}: " />
+					<h:inputText id="adminLogin" value="#{adminForm.login}" required="#{true}" />
+	
+					<h:outputText class="lefttable" value="#{msg.adminPassword}: " />
+					<h:inputSecret id="adminPassword" value="#{adminForm.password}" required="#{true}" />
+				</h:panelGrid>
+	
+				<h:commandButton value="#{msg.adminLoginButton}" action="#{adminForm.signin}" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
