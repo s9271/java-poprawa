@@ -13,7 +13,9 @@ public class adminForm implements Serializable{
 	private String loginForm = "admin";
 	private String passwordForm = "test";
 	private String login;
-	private String password;
+	private String password;	
+	private String test;
+
 	
 	/*private adminAccount adminAccount = new adminAccount();
 	
@@ -40,11 +42,21 @@ public class adminForm implements Serializable{
 		this.password = password;
 	}
 	
+	public String getTest() {
+		return test;
+	}
+
+	public void setTest(String test) {
+		this.test = test;
+	}
+
 	//Akcje
 	public String signin() {
 		if(this.loginForm.equals(login) && this.passwordForm.equals(password)){
+			setTest("zalogowano");
 			return "showPersons";
 		}else{
+			setTest("dupa");
 			return null;
 		}
 	}
