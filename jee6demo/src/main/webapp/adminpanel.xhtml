@@ -9,18 +9,28 @@
 		<div class="admin-menutop">
 			<ui:include src="/views/main/admin-menu.xhtml" />
 		</div>
-		<p class="title">#{msg.adminLoginForm} - #{adminForm.test}</p>
-		<div class="box add">
-			<h:form id="adminLogin">
-				<h:panelGrid columns="2">
-					<h:outputText class="lefttable" value="#{msg.adminLogin}: " />
-					<h:inputText id="adminLogin" value="#{adminForm.login}" required="#{true}" />
+		<p class="title">#{msg.linkAdminProducts}</p>
+		<div class="box">
+			<h:form>
+				<h:dataTable value="#{personBean.allPersons}" var="item">
+					
+					<h:column>
+						<f:facet name="header">#{msg.productName}</f:facet>
+						<h:outputText value="#{item.firstName}" />
+					</h:column>
 	
-					<h:outputText class="lefttable" value="#{msg.adminPassword}: " />
-					<h:inputSecret id="adminPassword" value="#{adminForm.password}" required="#{true}" />
-				</h:panelGrid>
+					<h:column>
+						<f:facet name="header">#{msg.productCount}</f:facet>
+						<h:outputText value="#{item.pin}" />
+					</h:column>
 	
-				<h:commandButton value="#{msg.adminLoginButton}" action="#{adminForm.signin}" />
+					<h:column>
+						<f:facet name="header">#{msg.action}</f:facet>
+						<h:commandLink value="#{msg.productEdit}" action="#{personBean.showDetails}"/>
+						<h:commandLink value="#{msg.productDelete}" action="#{personBean.deletePerson}" />
+					</h:column>
+	
+				</h:dataTable>
 			</h:form>
 		</div>
 	</ui:define>
