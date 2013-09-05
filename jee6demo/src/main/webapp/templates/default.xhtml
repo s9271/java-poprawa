@@ -4,30 +4,37 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><ui:insert name="windowTitle">#{msg.mainWindowTitle}</ui:insert></title>
-<h:outputStylesheet library="css" name="default.css" target="body" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><ui:insert name="windowTitle">#{msg.mainWindowTitle}</ui:insert></title>
+	<h:outputStylesheet library="css" name="default.css" target="body" />
 </h:head>
 <h:body>
-<div class="page">
-<div class="heading">
-<ui:insert name="heading">
-#{msg.mainHeading}
-</ui:insert>
-</div>
-<div class="menutop">
-<ui:include src="/views/main/menutop.xhtml" />
-</div>
-<div class="menuAndContent">
-<div class="menu">
-<ui:insert name="menu">
-<ui:include src="/views/main/menu.xhtml" />
-</ui:insert>
-</div>
-<div class="content">
-<ui:insert name="content" />
-</div>
-</div>
-</div>
+	<div class="page">
+		<div class="heading">
+			<ui:insert name="heading">
+				#{msg.mainHeading}
+			</ui:insert>
+		</div>
+		<div class="menutop">
+			<ui:include src="/views/main/menutop.xhtml" />
+		</div>
+		<div class="menuAndContent">
+			<div class="menu">
+				<h:panelGroup class="adminMenu"
+					rendered="#{AuthenticationBean.loggedIn}">
+					<ui:insert name="adminMenu">
+						<ui:include src="/restricted/adminMenu.xhtml" />
+					</ui:insert>
+				</h:panelGroup>
+
+				<ui:insert name="menu">
+					<ui:include src="/views/main/menu.xhtml" />
+				</ui:insert>
+			</div>
+			<div class="content">
+				<ui:insert name="content" />
+			</div>
+		</div>
+	</div>
 </h:body>
 </html>

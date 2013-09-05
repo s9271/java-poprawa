@@ -6,7 +6,12 @@
 	template="/templates/default.xhtml">
 
 	<ui:define name="content">
-		<p class="title">#{msg.adminLoginForm}</p>
+		<p class="title">
+			<h:outputText rendered="#{not AuthenticationBean.loggedIn}"
+				value="#{msg.adminLoginForm}" />
+			<h:outputText rendered="#{AuthenticationBean.loggedIn}"
+				value="#{msg.adminLoginWelcome}" />
+		</p>
 		<div class="box add">
 			<h:form>
 				<h:panelGroup rendered="#{not AuthenticationBean.loggedIn}">
