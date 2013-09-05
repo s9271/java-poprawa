@@ -9,4 +9,4 @@ INSERT INTO car(make, model, sold) VALUES ('Opel', 'Vectra', false)
 INSERT INTO car(make, model, sold) VALUES ('Opel', 'Astra', false)
 INSERT INTO car(make, model, sold) VALUES ('Renault', 'Megane', false)
 
-INSERT INTO products(name, count_product, price) VALUES ('test', '10', '20')
+INSERT INTO product(product_name, product_count, product_price) VALUES ('test', '10', '20')

@@ -19,8 +19,8 @@ public class ProductManager {
 	EntityManager em;
 	
 	@SuppressWarnings("unchecked") //musi byc bo przy funkcji wyskakiwal error
-	public List<Product> getAllProduct() {
-		return em.createNamedQuery("selectproducts").getResultList();
+	public List<Product> getAllProducts() {
+		return em.createNamedQuery("product.all").getResultList();
 	}
 	
 	public Query addProduct(Product product) {

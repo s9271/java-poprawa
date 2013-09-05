@@ -1,27 +1,27 @@
 package com.example.jeedemo.domain;
 
-//import java.util.ArrayList;
-//import java.util.Date;
-//import java.util.List;
+/*import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-//import javax.persistence.CascadeType;
+import javax.persistence.CascadeType;*/
 import javax.persistence.Entity;
 //import javax.persistence.FetchType;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-//import javax.persistence.OneToMany;
-//import javax.persistence.Temporal;
-//import javax.persistence.TemporalType;
-//import javax.validation.constraints.Size;
+/*import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;*/
+import javax.validation.constraints.Size;
 
-//@Entity //przy tym cos mi sie sypie
+@Entity //przy tym cos mi sie sypie
 @NamedQueries({ 
-	@NamedQuery(name = "selectproducts", query = "SELECT * FROM products"),
-	@NamedQuery(name = "addproduct", query = "INSERT INTO products('NAME', 'COUNT_PRODUCT', 'PRICE' ) VALUES (':product_name', :product_count, :product_price)"),
-	@NamedQuery(name = "deleteproduct", query = "DELETE FROM WHERE id = :product_id")
+	@NamedQuery(name = "product.all", query = "Select p from Product p")
+	//@NamedQuery(name = "addproduct", query = "INSERT INTO products('NAME', 'COUNT_PRODUCT', 'PRICE' ) VALUES (':product_name', :product_count, :product_price)"),
+	//@NamedQuery(name = "deleteproduct", query = "DELETE FROM WHERE id = :product_id")
 	
 })
 public class Product {
@@ -32,14 +32,17 @@ public class Product {
 	private String pin = "";
 	private Date registrationDate = new Date();*/
 	
-	private int product_id, product_count;
-	private String product_name;
-	private double product_price;
+	private Long product_id;
+	private int product_count = 0;
+	private String product_name = "";
+	private double product_price = 0.00;
 	
-	public int getProduct_id() {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(int product_id) {
+	public void setProduct_id(Long product_id) {
 		this.product_id = product_id;
 	}
 	public int getProduct_count() {
@@ -48,6 +51,7 @@ public class Product {
 	public void setProduct_count(int product_count) {
 		this.product_count = product_count;
 	}
+	@Size(min = 2, max = 20)
 	public String getProduct_name() {
 		return product_name;
 	}
