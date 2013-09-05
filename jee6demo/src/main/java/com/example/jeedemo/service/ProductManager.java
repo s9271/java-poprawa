@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+//import javax.persistence.Query;
 
 //import com.example.jeedemo.domain.Car;
 //import com.example.jeedemo.domain.Person;
@@ -23,7 +23,7 @@ public class ProductManager {
 		return em.createNamedQuery("product.all").getResultList();
 	}
 	
-	public Query addProduct(Product product) {
+	/*public Query addProduct(Product product) {
 		return em.createNamedQuery("addproduct")
 				.setParameter("product_name",product.getProduct_name())
 				.setParameter("product_count",product.getProduct_count())
@@ -33,17 +33,17 @@ public class ProductManager {
 	public Query deleteProduct(Product product) {
 		return em.createNamedQuery("addproduct")
 				.setParameter("product_id",product.getProduct_id());
+	}*/
+	
+	public void addProduct(Product product) {
+		product.setProduct_id(null);
+		em.persist(product);
 	}
 	
-	/*public void addProduct(Product product) {
-		product.setId(null);
-		em.persist(product);
-	}*/
-	
-	/*public void deleteProduct(Product product) {
+	public void deleteProduct(Product product) {
 		product = em.find(Product.class, product.getProduct_id());
 		em.remove(product);
-	}*/
+	}
 
 	/*public void addPerson(Person person) {
 		person.setId(null);

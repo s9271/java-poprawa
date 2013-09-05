@@ -53,7 +53,7 @@ public class ProductForm implements Serializable {
 	
 	public String addProduct() {
 		pt.addProduct(product);
-		return "adminpanel";
+		return "adminShowProducts";
 		//return null;
 	}
 
