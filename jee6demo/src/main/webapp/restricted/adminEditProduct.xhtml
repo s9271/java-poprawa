@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<p class="title">#{msg.linkAdminEditProduct} - #{ProductForm.product.product_name}</p>
+		<div class="box add">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputText class="lefttable" value="#{msg.productName}: " />
+					<h:inputText id="product_name"
+						value="#{ProductForm.product.product_name}" required="#{true}" />
+
+					<h:outputText class="lefttable" value="#{msg.productCount}: " />
+					<h:inputText id="product_count"
+						value="#{ProductForm.product.product_count}" />
+
+					<h:outputText class="lefttable" value="#{msg.productPrice}: " />
+					<h:inputText id="product_price"
+						value="#{ProductForm.product.product_price}" />
+				</h:panelGrid>
+
+				<h:commandButton value="#{msg.productEdit}" action="#{ProductForm.editProduct}"/>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,10 +1,5 @@
 package com.example.jeedemo.domain;
 
-/*import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;*/
 import javax.persistence.Entity;
 //import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,12 +20,6 @@ import javax.validation.constraints.Size;
 	
 })
 public class Product {
-
-	/*private Long id;
-
-	private String firstName = "";
-	private String pin = "";
-	private Date registrationDate = new Date();*/
 	
 	private Long product_id;
 	private int product_count = 0;
