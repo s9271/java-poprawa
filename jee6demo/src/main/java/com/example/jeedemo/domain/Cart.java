@@ -1,32 +1,33 @@
 package com.example.jeedemo.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
-//import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 /*import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;*/
-import javax.validation.constraints.Size;
+import javax.persistence.OneToMany;
 
-@Entity //przy tym cos mi sie sypie
+@Entity
 @NamedQueries({ 
-	@NamedQuery(name = "product.all", query = "Select p from Product p")
-	//@NamedQuery(name = "addproduct", query = "INSERT INTO products('NAME', 'COUNT_PRODUCT', 'PRICE' ) VALUES (':product_name', :product_count, :product_price)"),
-	//@NamedQuery(name = "deleteproduct", query = "DELETE FROM WHERE id = :product_id")
-	
+	@NamedQuery(name = "order.all", query = "Select p from Cart p")
 })
-public class Product {
+public class Cart {
 	
 	private Long product_id;
-	private int product_count = 0;
-	private String product_name = "";
-	private double product_price = 0.00;
+	private int cart_id = 1;
+	private int countProduct;
 	
 	private int countCart = 0;
+	private List<Product> products = new ArrayList<Product>();
 	
 	public int getCountCart() {
 		return countCart;
@@ -36,31 +37,32 @@ public class Product {
 	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getCart_id() {
+		return cart_id;
+	}
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
+	}
+	public int getCountProduct() {
+		return countProduct;
+	}
+	public void setCountProduct(int countProduct) {
+		this.countProduct = countProduct;
+	}
 	public Long getProduct_id() {
 		return product_id;
 	}
 	public void setProduct_id(Long product_id) {
 		this.product_id = product_id;
 	}
-	public int getProduct_count() {
-		return product_count;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setProduct_count(int product_count) {
-		this.product_count = product_count;
-	}
-	@Size(min = 2, max = 20)
-	public String getProduct_name() {
-		return product_name;
-	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
-	}
-	public double getProduct_price() {
-		return product_price;
-	}
-	public void setProduct_price(double product_price) {
-		this.product_price = product_price;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 	
 	

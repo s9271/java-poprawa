@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<p class="title">#{msg.productCart}</p>
+		<div class="box">
+			<h:form>
+				<h:dataTable value="#{CartForm.allProducts}" var="item">
+
+					<h:column>
+						<f:facet name="header">#{msg.productName}</f:facet>
+						<h:outputText value="#{item.product_name}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg.productCount}</f:facet>
+						<h:inputText id="product_count" value="#{item.product_count}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg.productPrice}</f:facet>
+						<h:outputText
+							value="#{item.product_price}#{msg.productPriceZloty}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">#{msg.action}</f:facet>
+						<h:commandLink value="#{msg.cartSave}"
+							action="#{ProductForm.cartSaveProduct}" />
+						<h:commandLink value="#{msg.productDelete}"
+							action="#{ProductForm.cartDeleteProduct}" />
+					</h:column>
+
+				</h:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
