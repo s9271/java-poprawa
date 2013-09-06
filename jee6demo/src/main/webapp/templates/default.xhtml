@@ -16,9 +16,9 @@
 			</ui:insert>
 			<div class="cart">
 				<h:form>
-					<h:commandLink action="productCart?faces-redirect=true">
+					<h:commandLink action="/productCart?faces-redirect=true">
 						<h:outputText
-							value="#{msg.productCart}: #{ProductForm.product.countCart}" />
+							value="#{msg.productCart}: #{CartForm.cart.countCart}" />
 					</h:commandLink>
 				</h:form>
 			</div>

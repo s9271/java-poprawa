@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+		<p class="title">#{msg.linkAdminProducts}</p>
+		<div class="box">
+			<h:form>
+				<h:dataTable value="#{ProductForm.allProducts}" var="item">
+					
+					<h:column>
+						<f:facet name="header">#{msg.productName}</f:facet>
+						<h:outputText value="#{item.product_name}" />
+					</h:column>
+	
+					<h:column>
+						<f:facet name="header">#{msg.productCount}</f:facet>
+						<h:outputText value="#{item.product_count}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">#{msg.productPrice}</f:facet>
+						<h:outputText value="#{item.product_price}#{msg.productPriceZloty}" />
+					</h:column>
+	
+					<h:column>
+						<f:facet name="header">#{msg.action}</f:facet>
+						<h:commandLink value="#{msg.productAddToCart}" action="#{CartForm.addToCart}"/>
+					</h:column>
+	
+				</h:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

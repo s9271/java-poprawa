@@ -21,8 +21,10 @@ public class CartForm implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private ListDataModel<Product> cartProduct = new ListDataModel<Product>();
-	private Cart cartToShow = new Cart();
+	private ListDataModel<Product> products = new ListDataModel<Product>();
+	//private Cart cartToShow = new Cart();
+	private Cart cart = new Cart();
+	private Product product = new Product();
 	
 	@Inject
 	private CartManager ct;
@@ -30,14 +32,29 @@ public class CartForm implements Serializable {
 	@Inject
 	private ProductManager pt;
 	
-	public ListDataModel<Product> getCartProduct() {
+	/*public ListDataModel<Product> getCartProduct() {
 		cartProduct.setWrappedData(ct.getCartProduct(cartToShow));
 		return cartProduct;
-	}
+	}*/
 	
 	public ListDataModel<Product> getAllProducts() {
-		cartProduct.setWrappedData(pt.getAllProducts());
-		return cartProduct;
+		products.setWrappedData(pt.getAllProducts());
+		return products;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	
+	public String addToCart() {
+		//Product productToCart = products.getRowData();
+		//ct.addToCart(productToCart);
+		cart.addProductToCart();
+		return "null";
 	}
 
 	/*private Product product = new Product();

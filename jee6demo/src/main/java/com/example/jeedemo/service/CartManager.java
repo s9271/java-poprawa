@@ -14,9 +14,16 @@ import com.example.jeedemo.domain.Product;
 
 @Stateless
 public class CartManager {
+	private Cart cart = new Cart();
 
 	@PersistenceContext
 	EntityManager em;
+	
+	public void addToCart(Product product) {
+		//product = em.find(Product.class, product.getProduct_id());
+		//product.setProduct_id(null);
+		//em.persist(product);
+	}
 
 	/*@SuppressWarnings("unchecked")
 	// musi byc bo przy funkcji wyskakiwal error
@@ -44,10 +51,10 @@ public class CartManager {
 		em.merge(product);
 	}*/
 	
-	public List<Product> getCartProduct(Cart cart) {
+	/*public List<Product> getCartProduct(Cart cart) {
 		cart = em.find(Cart.class, cart.getCart_id());
 		// lazy loading here - try this code without this (shallow) copying
 		List<Product> products = new ArrayList<Product>(cart.getProducts());
 		return products;
-	}
+	}*/
 }

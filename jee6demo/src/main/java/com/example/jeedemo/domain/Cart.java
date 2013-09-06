@@ -27,7 +27,7 @@ public class Cart {
 	private int countProduct;
 	
 	private int countCart = 0;
-	private List<Product> products = new ArrayList<Product>();
+	//private List<Product> products = new ArrayList<Product>();
 	
 	public int getCountCart() {
 		return countCart;
@@ -57,13 +57,19 @@ public class Cart {
 		this.product_id = product_id;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public int addProductToCart() { // pozniej pobrac count z tablicy
+		countCart++;
+		return countCart;
+	}
+
+	
+	/*@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public List<Product> getProducts() {
 		return products;
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
-	}
+	}*/
 	
 	
 	/*private List<Car> cars = new ArrayList<Car>();

@@ -26,15 +26,6 @@ public class Product {
 	private String product_name = "";
 	private double product_price = 0.00;
 	
-	private int countCart = 0;
-	
-	public int getCountCart() {
-		return countCart;
-	}
-	public void setCountCart(int countCart) {
-		this.countCart = countCart;
-	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getProduct_id() {
