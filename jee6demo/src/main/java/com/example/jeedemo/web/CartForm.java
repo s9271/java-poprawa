@@ -63,7 +63,7 @@ public class CartForm implements Serializable {
 		setCountCart(ct.countProductInCart());
 		return "null";
 	}
-	
+
 	public boolean isCountIn() {
 		if (countCart < 1) {
 			return false;

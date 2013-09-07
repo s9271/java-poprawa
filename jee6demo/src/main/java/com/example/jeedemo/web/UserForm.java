@@ -19,7 +19,8 @@ public class UserForm implements Serializable {
 	private User user = new User();
 	private ListDataModel<User> users = new ListDataModel<User>();
 
-	static boolean logged = true; // zmienic na false !!!
+	// zmienic na false !!! (true tylko przy testach)
+	static boolean logged = false;
 	private String loginForm;
 	private String passwordForm;
 	private Long loginCount;

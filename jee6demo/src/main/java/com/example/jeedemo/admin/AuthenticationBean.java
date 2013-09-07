@@ -48,7 +48,7 @@ public class AuthenticationBean implements Serializable {
 		}
 		return "/home";
 	}
-	
+
 	public String fastlogin() {
 		zalogowany = true;
 		return "/home";

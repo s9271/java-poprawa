@@ -31,8 +31,8 @@
 					</h:column>
 
 				</h:dataTable>
-				<h:commandButton value="#{msg.iOrder}" action="#{UserForm.order}"
-					rendered="#{CartForm.countIn}" />
+				<h:commandButton value="#{msg.iOrder}"
+					action="/iOrder?faces-redirect=true" rendered="#{CartForm.countIn}" />
 			</h:form>
 		</div>
 	</ui:define>

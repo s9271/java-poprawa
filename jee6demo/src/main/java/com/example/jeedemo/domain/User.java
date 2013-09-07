@@ -13,8 +13,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
 		@NamedQuery(name = "user.all", query = "Select p from User p"),
 		@NamedQuery(name = "login.all", query = "Select count(p) from User p where p.login=:login and p.password=:password"),
-		@NamedQuery(name = "getid.all", query = "Select p.id from User p where p.login=:login and p.password=:password")
-})
+		@NamedQuery(name = "getid.all", query = "Select p.id from User p where p.login=:login and p.password=:password") })
 public class User {
 
 	private Long id;

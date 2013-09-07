@@ -5,29 +5,25 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 	<h:form>
 		<ul>
-			<li>
-				<h:commandLink action="/home?faces-redirect=true">
+			<li><h:commandLink action="/home?faces-redirect=true">
 					<h:outputText value="#{msg.linkHome}" />
-				</h:commandLink>
-			</li>
-			<li>
-				<h:commandLink action="/products?faces-redirect=true">
+				</h:commandLink></li>
+			<li><h:commandLink action="/products?faces-redirect=true">
 					<h:outputText value="#{msg.linkAdminProducts}" />
-				</h:commandLink>
-			</li>
+				</h:commandLink></li>
 			<!-- li>
 				<h:commandLink action="/panda?faces-redirect=true">
 					<h:outputText value="#{msg.mainHelp}" />
 				</h:commandLink>
 			</li -->
-			<li class="menuadmin">
-				<h:commandLink rendered="#{not AuthenticationBean.loggedIn}" action="/admin?faces-redirect=true">
+			<li class="menuadmin"><h:commandLink
+					rendered="#{not AuthenticationBean.loggedIn}"
+					action="/admin?faces-redirect=true">
 					<h:outputText value="#{msg.mainAdmin}" />
-				</h:commandLink>
-				<h:commandLink rendered="#{AuthenticationBean.loggedIn}" action="#{AuthenticationBean.logout}">
+				</h:commandLink> <h:commandLink rendered="#{AuthenticationBean.loggedIn}"
+					action="#{AuthenticationBean.logout}">
 					<h:outputText value="#{msg.signOut}" />
-				</h:commandLink>
-			</li>
+				</h:commandLink></li>
 		</ul>
 	</h:form>
 </ui:composition>

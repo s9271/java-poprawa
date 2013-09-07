@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/templates/default.xhtml">
-	
+
 	<ui:define name="content">
 		<div class="admin-menutop">
 			<ui:include src="/views/main/admin-menu.xhtml" />
@@ -13,23 +13,25 @@
 		<div class="box">
 			<h:form>
 				<h:dataTable value="#{ProductForm.allProducts}" var="item">
-					
+
 					<h:column>
 						<f:facet name="header">#{msg.productName}</f:facet>
 						<h:outputText value="#{item.product_name}" />
 					</h:column>
-	
+
 					<h:column>
 						<f:facet name="header">#{msg.productCount}</f:facet>
 						<h:outputText value="#{item.product_count}" />
 					</h:column>
-	
+
 					<h:column>
 						<f:facet name="header">#{msg.action}</f:facet>
-						<h:commandLink value="#{msg.productEdit}" action="#{personBean.showDetails}"/>
-						<h:commandLink value="#{msg.productDelete}" action="#{personBean.deletePerson}" />
+						<h:commandLink value="#{msg.productEdit}"
+							action="#{personBean.showDetails}" />
+						<h:commandLink value="#{msg.productDelete}"
+							action="#{personBean.deletePerson}" />
 					</h:column>
-	
+
 				</h:dataTable>
 			</h:form>
 		</div>
