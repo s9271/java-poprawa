@@ -24,8 +24,8 @@ public class CartForm implements Serializable {
 	private ListDataModel<Product> products = new ListDataModel<Product>();
 	//private Cart cartToShow = new Cart();
 	private Cart cart = new Cart();
-	private Product product = new Product();
-	private int countCart = 0;
+	//private Product product = new Product();
+	private Long countCart = (long) 0;
 	
 	@Inject
 	private CartManager ct;
@@ -33,13 +33,8 @@ public class CartForm implements Serializable {
 	@Inject
 	private ProductManager pt;
 	
-	/*public ListDataModel<Product> getCartProduct() {
-		cartProduct.setWrappedData(ct.getCartProduct(cartToShow));
-		return cartProduct;
-	}*/
-	
 	public ListDataModel<Product> getAllProducts() {
-		products.setWrappedData(pt.getAllProducts());
+		products.setWrappedData(ct.getAllProducts());
 		return products;
 	}
 
@@ -51,27 +46,20 @@ public class CartForm implements Serializable {
 		this.cart = cart;
 	}
 
-	public int getCountCart() {
+	public Long getCountCart() {
 		return countCart;
 	}
 
-	public void setCountCart(int countCart) {
+	public void setCountCart(Long countCart) {
 		this.countCart = countCart;
 	}
 	
 	public String addToCart() {
 		Product productToCart = products.getRowData();
 		ct.addToCart(productToCart);
-		//cart.addProductToCart();
+		countCart = ct.countProductInCart();
 		return "null";
 	}
-	
-	/*public String addToCart() {
-		//Product productToCart = products.getRowData();
-		//ct.addToCart(productToCart);
-		cart.addProductToCart();
-		return "null";
-	}*/
 
 	/*private Product product = new Product();
 	private ListDataModel<Product> products = new ListDataModel<Product>();

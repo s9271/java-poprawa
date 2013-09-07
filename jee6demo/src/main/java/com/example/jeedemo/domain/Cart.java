@@ -13,13 +13,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+
 /*import javax.persistence.OneToMany;
  import javax.persistence.Temporal;
  import javax.persistence.TemporalType;*/
 //import javax.persistence.OneToMany;
 
 @Entity
-@NamedQueries({ @NamedQuery(name = "order.all", query = "Select p from Cart p") })
+@NamedQueries({
+		@NamedQuery(name = "order.all", query = "Select p from Cart p"),
+		@NamedQuery(name = "productnot.all", query = "Select p from Product p where p.product_id not in(Select c.product_id from Cart c)"),
+		@NamedQuery(name = "countproduct.all", query = "Select count(c) from Cart c where user_id=:user") })
 public class Cart {
 
 	private Long id;

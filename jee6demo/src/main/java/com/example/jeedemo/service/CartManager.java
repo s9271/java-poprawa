@@ -3,6 +3,8 @@ package com.example.jeedemo.service;
 //import java.util.ArrayList;
 //import java.util.List;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,16 +24,26 @@ public class CartManager {
 	EntityManager em;
 	
 	public void addToCart(Product product) {
+		user.setId((long) 1); //dla testow
 		cart.setId(null);
 		cart.setProduct_id(product.getProduct_id());
-		//cart.setUser_id((long) 1);
-		//cart.setCountProduct(1);
-		//em.persist(cart);
-		//product = em.find(Product.class, product.getProduct_id());
-		//product.setProduct_id(null);
-		//em.persist(product);
+		cart.setUser_id(user.getId());
+		cart.setCountProduct(1);
+		em.persist(cart);
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Product> getAllProducts() {
+		return em.createNamedQuery("productnot.all").getResultList();
+	}
+	
+	public Long countProductInCart() {
+		return (Long) em.createNamedQuery("countproduct.all")
+				.setParameter("user", user.getId()).getSingleResult();
+	}
+	
+	
 
 	/*@SuppressWarnings("unchecked")
 	// musi byc bo przy funkcji wyskakiwal error

@@ -19,7 +19,7 @@ public class UserForm implements Serializable {
 	private User user = new User();
 	private ListDataModel<User> users = new ListDataModel<User>();
 
-	static boolean logged = false;
+	static boolean logged = true; //zmienic na false !!!
 	private String loginForm;
 	private String passwordForm;
 	private Long loginCount;
@@ -90,6 +90,7 @@ public class UserForm implements Serializable {
 		loginCount = um.searchUser(loginForm, passwordForm);
 
 		if (loginCount == 1) {
+			user.setId(um.getUserId(loginForm, passwordForm));
 			logged = true;
 			return "/home";
 		} else {
@@ -98,6 +99,7 @@ public class UserForm implements Serializable {
 	}
 
 	public String fastlogin() {
+		user.setId((long) 1);
 		logged = true;
 		return "/home";
 	}
