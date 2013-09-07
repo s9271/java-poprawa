@@ -28,7 +28,7 @@
 					<h:commandButton value="#{msg.adminLoginButtonFast}"
 						action="#{AuthenticationBean.fastlogin}" />
 				</h:panelGroup>
-				<h:commandButton value="logout"
+				<h:commandButton value="#{msg.signOut}"
 					action="#{AuthenticationBean.logout}"
 					rendered="#{AuthenticationBean.loggedIn}" />
 			</h:form>

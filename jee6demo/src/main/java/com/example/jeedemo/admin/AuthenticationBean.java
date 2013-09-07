@@ -46,16 +46,16 @@ public class AuthenticationBean implements Serializable {
 		if (name.equals(admin_login) && password.equals(admin_password)) {
 			zalogowany = true;
 		}
-		return "admin";
+		return "/home";
 	}
 	
 	public String fastlogin() {
 		zalogowany = true;
-		return "admin";
+		return "/home";
 	}
 
 	public String logout() {
 		zalogowany = false;
-		return "admin";
+		return "/home";
 	}
 }

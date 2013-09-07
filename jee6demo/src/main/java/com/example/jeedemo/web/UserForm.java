@@ -91,7 +91,7 @@ public class UserForm implements Serializable {
 
 		if (loginCount == 1) {
 			logged = true;
-			return "home";
+			return "/home";
 		} else {
 			return "null";
 		}
@@ -99,12 +99,12 @@ public class UserForm implements Serializable {
 
 	public String fastlogin() {
 		logged = true;
-		return "home";
+		return "/home";
 	}
 
 	public String logout() {
 		logged = false;
-		return "home";
+		return "/home";
 	}
 
 	public Long getLoginCount() {

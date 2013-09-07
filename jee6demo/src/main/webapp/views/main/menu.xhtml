@@ -19,7 +19,7 @@
 					<h:outputText value="#{msg.signUp}" />
 				</h:commandLink></li>
 			<li><h:commandLink rendered="#{UserForm.loggedIn}"
-					action="/signOut?faces-redirect=true">
+					action="#{UserForm.logout}">
 					<h:outputText value="#{msg.signOut}" />
 				</h:commandLink></li>
 		</ul>

@@ -21,8 +21,11 @@
 				</h:commandLink>
 			</li -->
 			<li class="menuadmin">
-				<h:commandLink action="/admin?faces-redirect=true">
+				<h:commandLink rendered="#{not AuthenticationBean.loggedIn}" action="/admin?faces-redirect=true">
 					<h:outputText value="#{msg.mainAdmin}" />
+				</h:commandLink>
+				<h:commandLink rendered="#{AuthenticationBean.loggedIn}" action="#{AuthenticationBean.logout}">
+					<h:outputText value="#{msg.signOut}" />
 				</h:commandLink>
 			</li>
 		</ul>

@@ -48,5 +48,5 @@ public class UserManager {
 		.setParameter("password", passwordForm)
 		.getSingleResult(); 
 	}
-	
+
 }
