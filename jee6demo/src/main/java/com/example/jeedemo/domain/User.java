@@ -15,6 +15,7 @@ public class User {
 
 	private Long id;
 	private String name;
+	private String surname;
 	private String mail;
 	private String phone;
 	private String login;
@@ -37,6 +38,15 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Size(min = 2, max = 20)
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public String getMail() {

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<p class="title">#{msg.linkAdminEditUser} - #{UserForm.user.name}</p>
+		<div class="box add">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputText class="lefttable" value="#{msg.userName}: " />
+					<h:inputText id="name" value="#{UserForm.user.name}"
+						required="#{true}" />
+
+					<h:outputText class="lefttable" value="#{msg.userSurname}: " />
+					<h:inputText id="surname" value="#{UserForm.user.surname}"
+						required="#{true}" />
+
+					<h:outputText class="lefttable" value="#{msg.userMail}: " />
+					<h:inputText id="mail" value="#{UserForm.user.mail}"
+						required="#{true}" />
+
+					<h:outputText class="lefttable" value="#{msg.userPhone}: " />
+					<h:inputText id="phone" value="#{UserForm.user.phone}"
+						required="#{true}" />
+
+					<h:outputText class="lefttable" value="#{msg.userLogin}: " />
+					<h:inputText id="login" value="#{UserForm.user.login}"
+						required="#{true}" />
+
+					<h:outputText class="lefttable" value="#{msg.userPassword}: " />
+					<h:inputText id="password" value="#{UserForm.user.password}"
+						required="#{true}" />
+				</h:panelGrid>
+
+				<h:commandButton value="#{msg.productEdit}"
+					action="#{UserForm.editUser}" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

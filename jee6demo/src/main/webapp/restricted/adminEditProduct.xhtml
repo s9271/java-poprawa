@@ -8,7 +8,8 @@
 	xmlns:rich="http://richfaces.org/rich">
 
 	<ui:define name="content">
-		<p class="title">#{msg.linkAdminEditProduct} - #{ProductForm.product.product_name}</p>
+		<p class="title">#{msg.linkAdminEditProduct} -
+			#{ProductForm.product.product_name}</p>
 		<div class="box add">
 			<h:form>
 				<h:panelGrid columns="2">
@@ -25,7 +26,8 @@
 						value="#{ProductForm.product.product_price}" />
 				</h:panelGrid>
 
-				<h:commandButton value="#{msg.productEdit}" action="#{ProductForm.editProduct}"/>
+				<h:commandButton value="#{msg.productEdit}"
+					action="#{ProductForm.editProduct}" />
 			</h:form>
 		</div>
 	</ui:define>
