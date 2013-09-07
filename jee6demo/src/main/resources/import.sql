@@ -11,3 +11,5 @@ INSERT INTO car(make, model, sold) VALUES ('Opel', 'Astra', false)
 INSERT INTO car(make, model, sold) VALUES ('Renault', 'Megane', false)
 
 INSERT INTO product(product_name, product_count, product_price) VALUES ('test', '10', '20')
+
+INSERT INTO user(name, surname, mail, phone, login, password) VALUES ('aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa')

@@ -10,16 +10,18 @@
 			</ui:insert>
 		</div>
 		<ul>
-			<li>
-				<h:commandLink action="add?faces-redirect=true">
-					<h:outputText value="#{msg.personAddLabel}" />
-				</h:commandLink>
-			</li>
-			<li>
-				<h:commandLink action="sell?faces-redirect=true">
-					<h:outputText value="#{msg.personSellCars}" />
-				</h:commandLink>
-			</li>
+			<li><h:commandLink rendered="#{not UserForm.loggedIn}"
+					action="/login?faces-redirect=true">
+					<h:outputText value="#{msg.signIn}" />
+				</h:commandLink></li>
+			<li><h:commandLink rendered="#{not UserForm.loggedIn}"
+					action="/signUp?faces-redirect=true">
+					<h:outputText value="#{msg.signUp}" />
+				</h:commandLink></li>
+			<li><h:commandLink rendered="#{UserForm.loggedIn}"
+					action="/signOut?faces-redirect=true">
+					<h:outputText value="#{msg.signOut}" />
+				</h:commandLink></li>
 		</ul>
 	</h:form>
 </ui:composition>

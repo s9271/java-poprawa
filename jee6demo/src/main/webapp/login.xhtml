@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+
+	<ui:define name="content">
+		<p class="title">
+			<h:outputText rendered="#{not UserForm.loggedIn}"
+				value="#{msg.LoginForm} - #{UserForm.loginCount}" />
+			<h:outputText rendered="#{UserForm.loggedIn}"
+				value="#{msg.adminLoginWelcome}" />
+		</p>
+		<div class="box add">
+			<h:form>
+				<h:panelGroup rendered="#{not UserForm.loggedIn}">
+					<h:panelGrid columns="2">
+						<h:outputText class="lefttable" value="#{msg.adminLogin}: " />
+						<h:inputText value="#{UserForm.loginForm}" required="#{true}" />
+
+						<h:outputText class="lefttable" value="#{msg.adminPassword}: " />
+						<h:inputSecret value="#{UserForm.passwordForm}" required="#{true}" />
+					</h:panelGrid>
+
+					<h:commandButton value="#{msg.adminLoginButton}"
+						action="#{UserForm.login}" />
+					<h:commandButton value="#{msg.adminLoginButtonFast}"
+						action="#{UserForm.fastlogin}" />
+				</h:panelGroup>
+				<h:commandButton value="logout" action="#{UserForm.logout}"
+					rendered="#{UserForm.loggedIn}" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

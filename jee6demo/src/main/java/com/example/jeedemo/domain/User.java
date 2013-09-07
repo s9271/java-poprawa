@@ -10,7 +10,9 @@ import javax.validation.constraints.Size;
 
 @Entity
 // bez klasy UserManager wyskakuje blad
-@NamedQueries({ @NamedQuery(name = "user.all", query = "Select p from User p") })
+@NamedQueries({
+		@NamedQuery(name = "user.all", query = "Select p from User p"),
+		@NamedQuery(name = "login.all", query = "Select count(p) from User p where p.login=:login and p.password=:password") })
 public class User {
 
 	private Long id;

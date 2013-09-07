@@ -41,4 +41,12 @@ public class UserManager {
 	public void editUser(User user) {
 		em.merge(user);
 	}
+	
+	public Long searchUser(String loginForm, String passwordForm) {
+		return (Long) em.createNamedQuery("login.all")
+		.setParameter("login", loginForm)
+		.setParameter("password", passwordForm)
+		.getSingleResult(); 
+	}
+	
 }
