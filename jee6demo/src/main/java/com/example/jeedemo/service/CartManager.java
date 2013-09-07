@@ -1,7 +1,7 @@
 package com.example.jeedemo.service;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -9,20 +9,28 @@ import javax.persistence.PersistenceContext;
 
 //import com.example.jeedemo.domain.Car;
 import com.example.jeedemo.domain.Cart;
+import com.example.jeedemo.domain.User;
 //import com.example.jeedemo.domain.Person;
 import com.example.jeedemo.domain.Product;
 
 @Stateless
 public class CartManager {
 	private Cart cart = new Cart();
+	private User user = new User();
 
 	@PersistenceContext
 	EntityManager em;
 	
 	public void addToCart(Product product) {
+		cart.setId(null);
+		cart.setProduct_id(product.getProduct_id());
+		//cart.setUser_id((long) 1);
+		//cart.setCountProduct(1);
+		//em.persist(cart);
 		//product = em.find(Product.class, product.getProduct_id());
 		//product.setProduct_id(null);
 		//em.persist(product);
+		
 	}
 
 	/*@SuppressWarnings("unchecked")
