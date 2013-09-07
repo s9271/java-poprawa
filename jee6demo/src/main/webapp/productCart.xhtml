@@ -11,16 +11,11 @@
 		<p class="title">#{msg.productCart}</p>
 		<div class="box">
 			<h:form>
-				<h:dataTable value="#{CartForm.allProducts}" var="item">
+				<h:dataTable value="#{CartForm.allProductsInCart}" var="item">
 
 					<h:column>
 						<f:facet name="header">#{msg.productName}</f:facet>
 						<h:outputText value="#{item.product_name}" />
-					</h:column>
-
-					<h:column>
-						<f:facet name="header">#{msg.productCount}</f:facet>
-						<h:inputText id="product_count" value="#{item.product_count}" />
 					</h:column>
 
 					<h:column>
@@ -31,10 +26,8 @@
 
 					<h:column>
 						<f:facet name="header">#{msg.action}</f:facet>
-						<h:commandLink value="#{msg.cartSave}"
-							action="#{ProductForm.cartSaveProduct}" />
 						<h:commandLink value="#{msg.productDelete}"
-							action="#{ProductForm.cartDeleteProduct}" />
+							action="#{CartForm.cartDeleteProduct}" />
 					</h:column>
 
 				</h:dataTable>
