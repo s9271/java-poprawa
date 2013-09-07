@@ -19,7 +19,7 @@ public class UserForm implements Serializable {
 	private User user = new User();
 	private ListDataModel<User> users = new ListDataModel<User>();
 
-	static boolean logged = true; //zmienic na false !!!
+	static boolean logged = true; // zmienic na false !!!
 	private String loginForm;
 	private String passwordForm;
 	private Long loginCount;
@@ -78,6 +78,8 @@ public class UserForm implements Serializable {
 		return "adminEditUser";
 	}
 
+	// potrzebny "is" na poczatku aby metoda byla pobierana bez koniecznosci
+	// robienia zmiennej
 	public boolean isLoggedIn() {
 		if (logged == false) {
 			return false;

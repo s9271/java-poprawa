@@ -53,14 +53,22 @@ public class CartForm implements Serializable {
 	public String addToCart() {
 		Product productToCart = products.getRowData();
 		ct.addToCart(productToCart);
-		countCart = ct.countProductInCart();
+		setCountCart(ct.countProductInCart());
 		return "null";
 	}
 
 	public String cartDeleteProduct() {
 		Product productDeleteFromCart = products.getRowData();
 		ct.cartDeleteProduct(productDeleteFromCart);
-		countCart = ct.countProductInCart();
+		setCountCart(ct.countProductInCart());
 		return "null";
+	}
+	
+	public boolean isCountIn() {
+		if (countCart < 1) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }

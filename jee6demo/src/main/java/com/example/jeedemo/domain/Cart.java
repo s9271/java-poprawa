@@ -12,8 +12,6 @@ import javax.persistence.NamedQuery;
 		@NamedQuery(name = "order.all", query = "Select p from Cart p"),
 		@NamedQuery(name = "productnot.all", query = "Select p from Product p where p.product_id not in(Select c.product_id from Cart c)"),
 		@NamedQuery(name = "countproduct.all", query = "Select count(c) from Cart c where user_id=:user"),
-		// nie dziala @NamedQuery(name = "productin.all", query =
-		// "Select p, c.countproduct product_count from Product p, Cart c where p.product_id = c.product_id")
 		@NamedQuery(name = "productin.all", query = "Select p from Product p, Cart c where p.product_id = c.product_id"),
 		@NamedQuery(name = "productfromcart.all", query = "Select c.id from Cart c where c.product_id=:product") })
 public class Cart {
